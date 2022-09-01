@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { demoProfilePicture } from '../utils/constants';
 
 
-const ChannelCard = ({ channelDetail }) => (
+const ChannelCard = ({ channelDetail, marginTop }) => (
   <Box sx={{ 
     boxShadow: 'none', 
     borderRadius:'20px' ,
@@ -15,6 +15,7 @@ const ChannelCard = ({ channelDetail }) => (
     width: { xs: '356px', md: '320px' },
     height: '326px',
     margin: 'auto',
+    marginTop: marginTop //from the props
   }}>
     <Link to={`/channel/${channelDetail?.id?.channelId}`}>
       <CardContent sx={{ dispaly:'flex', flexDirection: 'column', justifyContent: 'center',
@@ -22,7 +23,7 @@ const ChannelCard = ({ channelDetail }) => (
         <CardMedia 
           image={ channelDetail?.snippet?.thumbnails?.high?.url || demoProfilePicture }
           alt={channelDetail?.snippet?.title}
-          sx={{ borderRadius:'50%' , height: '180px', width: '180px', mb: 2, border: '1px solid #e3e3e3'}}
+          sx={{ borderRadius:'50%', height: '180px', width: '180px', mb: 2, border: '1px solid #e3e3e3'}}
         />
         <Typography variant="h6" >
           {channelDetail?.snippet?.title}
